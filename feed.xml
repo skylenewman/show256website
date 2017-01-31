@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="http://show256.com/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.3.1">Jekyll</generator><link href="http://show256.com/feed.xml" rel="self" type="application/atom+xml" /><link href="http://show256.com/" rel="alternate" type="text/html" /><updated>2017-01-31T09:10:14-06:00</updated><id>http://show256.com//</id><title type="html">Show 256</title><subtitle>This site is a repository of projects and project updates by makers in North Alabama.
+<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="http://show256.com/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.3.1">Jekyll</generator><link href="http://show256.com/feed.xml" rel="self" type="application/atom+xml" /><link href="http://show256.com/" rel="alternate" type="text/html" /><updated>2017-01-31T10:31:23-06:00</updated><id>http://show256.com//</id><title type="html">Show 256</title><subtitle>This site is a repository of projects and project updates by makers in North Alabama.
 </subtitle><entry><title type="html">show256.com Launches</title><link href="http://show256.com/show256/2017/01/30/show256-launches.html" rel="alternate" type="text/html" title="show256.com Launches" /><published>2017-01-30T01:07:35-06:00</published><updated>2017-01-30T01:07:35-06:00</updated><id>http://show256.com/show256/2017/01/30/show256-launches</id><content type="html" xml:base="http://show256.com/show256/2017/01/30/show256-launches.html">&lt;p&gt;&lt;a href=&quot;https://twitter.com/carromj&quot;&gt;Michael Carroll&lt;/a&gt; shared a link to an article on &lt;a href=&quot;https://blog.1ppm.club/12-months-12-side-projects-are-you-in-c395dbcd648e#.oxx7q03gt&quot;&gt;completing twelve side projects in twelve months&lt;/a&gt; to a mutual &lt;a href=&quot;https://www.facebook.com/groups/3210.io/&quot;&gt;Facebook group&lt;/a&gt; as a suggestion for new year’s resolutions. He talked about having regularly recurring in-person checkins at CoWorking Night for everyone who wanted to commit to the goal, but I’m consistently unavailable during the evenings, so I decided to create an accountability website, somewhat like &lt;a href=&quot;http://live.megamaker.co/&quot;&gt;the MegaMaker challenge&lt;/a&gt;.&lt;/p&gt;
 
 &lt;p&gt;For the &lt;a href=&quot;http://show256.herokuapp.com/&quot;&gt;first iteration of this site&lt;/a&gt;, I deployed &lt;a href=&quot;https://www.wordpress.org/&quot;&gt;WordPress&lt;/a&gt; to &lt;a href=&quot;https://www.heroku.com/&quot;&gt;Heroku&lt;/a&gt;. My only experience prior with WordPress was deploying to a LAMP stack. While it was fun and I learned a lot, I realized that I didn’t want to pay to keep the instance awake and I was not happy with the load times.&lt;/p&gt;
@@ -7,17 +7,17 @@
 
 &lt;p&gt;To begin with, I bought the URL nld.to.&lt;/p&gt;
 
-&lt;p&gt;I found (YOURLS)[https://github.com/YOURLS/YOURLS], which is a PHP/MySQL-based URL shortener.  I already had an (Amazon Lightsail)[https://amazonlightsail.com] Ubuntu box that was idle ($5 per month), so I set it up on there.&lt;/p&gt;
+&lt;p&gt;I found &lt;a href=&quot;https://github.com/YOURLS/YOURLS&quot;&gt;YOURLS&lt;/a&gt;, which is a PHP/MySQL-based URL shortener.  I already had an &lt;a href=&quot;https://amazonlightsail.com&quot;&gt;Amazon Lightsail&lt;/a&gt; Ubuntu box that was idle ($5 per month), so I set it up on there.&lt;/p&gt;
 
 &lt;p&gt;As a note, the YOURLS software does not create a homepage (index.php), so if you visit, there will be errors.  If you instead visit:&lt;/p&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;http://nld.to/cwn (CoWorking Night)&lt;/li&gt;
-  &lt;li&gt;http://nld.to/3210 (32/10 Young Professionals)&lt;/li&gt;
-  &lt;li&gt;http://nld.to/donate (Donate to New Leaf!)&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://nld.to/cwn&quot;&gt;http://nld.to/cwn&lt;/a&gt; (CoWorking Night)&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://nld.to/3210&quot;&gt;http://nld.to/3210&lt;/a&gt; (32/10 Young Professionals)&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://nld.to/donate&quot;&gt;http://nld.to/donate&lt;/a&gt; (Donate to New Leaf!)&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;The only major thing that I ran into was that there were errors creating a few of the tables with MariaDB on 16.04.  I worked through the issue by following this (Github Issue)[https://github.com/YOURLS/YOURLS/issues/2125], in particular the following command got the tables to create properly.:&lt;/p&gt;
+&lt;p&gt;The only major thing that I ran into was that there were errors creating a few of the tables with MariaDB on 16.04.  I worked through the issue by following this &lt;a href=&quot;https://github.com/YOURLS/YOURLS/issues/2125&quot;&gt;Github Issue&lt;/a&gt;, in particular the following command got the tables to create properly.:&lt;/p&gt;
 
 &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;MariaDB [yourlsdb]&amp;gt; CREATE TABLE IF NOT EXISTS yourls_url (keyword varchar(200) BINARY NOT NULL,url text BINARY NOT NULL,title text CHARACTER SET utf8,timestamp TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,ip VARCHAR(41) NOT NULL,clicks INT(10) UNSIGNED NOT NULL, PRIMARY KEY (keyword), KEY timestamp (timestamp), KEY ip (ip))
 -&amp;gt; ENGINE=MyISAM;

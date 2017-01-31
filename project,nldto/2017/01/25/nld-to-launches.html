@@ -150,17 +150,17 @@
 
 <p>To begin with, I bought the URL nld.to.</p>
 
-<p>I found (YOURLS)[https://github.com/YOURLS/YOURLS], which is a PHP/MySQL-based URL shortener.  I already had an (Amazon Lightsail)[https://amazonlightsail.com] Ubuntu box that was idle ($5 per month), so I set it up on there.</p>
+<p>I found <a href="https://github.com/YOURLS/YOURLS">YOURLS</a>, which is a PHP/MySQL-based URL shortener.  I already had an <a href="https://amazonlightsail.com">Amazon Lightsail</a> Ubuntu box that was idle ($5 per month), so I set it up on there.</p>
 
 <p>As a note, the YOURLS software does not create a homepage (index.php), so if you visit, there will be errors.  If you instead visit:</p>
 
 <ul>
-  <li>http://nld.to/cwn (CoWorking Night)</li>
-  <li>http://nld.to/3210 (32/10 Young Professionals)</li>
-  <li>http://nld.to/donate (Donate to New Leaf!)</li>
+  <li><a href="http://nld.to/cwn">http://nld.to/cwn</a> (CoWorking Night)</li>
+  <li><a href="http://nld.to/3210">http://nld.to/3210</a> (32/10 Young Professionals)</li>
+  <li><a href="http://nld.to/donate">http://nld.to/donate</a> (Donate to New Leaf!)</li>
 </ul>
 
-<p>The only major thing that I ran into was that there were errors creating a few of the tables with MariaDB on 16.04.  I worked through the issue by following this (Github Issue)[https://github.com/YOURLS/YOURLS/issues/2125], in particular the following command got the tables to create properly.:</p>
+<p>The only major thing that I ran into was that there were errors creating a few of the tables with MariaDB on 16.04.  I worked through the issue by following this <a href="https://github.com/YOURLS/YOURLS/issues/2125">Github Issue</a>, in particular the following command got the tables to create properly.:</p>
 
 <div class="highlighter-rouge"><pre class="highlight"><code>MariaDB [yourlsdb]&gt; CREATE TABLE IF NOT EXISTS yourls_url (keyword varchar(200) BINARY NOT NULL,url text BINARY NOT NULL,title text CHARACTER SET utf8,timestamp TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,ip VARCHAR(41) NOT NULL,clicks INT(10) UNSIGNED NOT NULL, PRIMARY KEY (keyword), KEY timestamp (timestamp), KEY ip (ip))
 -&gt; ENGINE=MyISAM;
