@@ -9,9 +9,9 @@
     <meta name="description" content="This site is a repository of projects and project updates by makers in North Alabama.
 ">
 
-    <title>Show 256</title>
+    <title>nld.to URL Shortener Launches - Show 256</title>
 
-    <!-- <link rel="canonical" href="http://show256.com/index.md.bak"> -->
+    <!-- <link rel="canonical" href="http://show256.com/project,nldto/2017/01/25/nld-to-launches.html"> -->
 
     <!-- Bootstrap Core CSS -->
     <!-- <link rel="stylesheet" href="/css/bootstrap.min.css"> -->
@@ -47,19 +47,22 @@
     <link type="application/atom+xml" rel="alternate" href="http://show256.com/feed.xml" title="Show 256" />
 
     <!-- Begin Jekyll SEO tag v2.1.0 -->
-<title>Show 256 - This site is a repository of projects and project updates by makers in North Alabama.</title>
-<meta property="og:title" content="Show 256" />
-<meta name="description" content="This site is a repository of projects and project updates by makers in North Alabama." />
-<meta property="og:description" content="This site is a repository of projects and project updates by makers in North Alabama." />
-<link rel="canonical" href="http://show256.com/index.md.bak" />
-<meta property="og:url" content="http://show256.com/index.md.bak" />
+<title>nld.to URL Shortener Launches - Show 256</title>
+<meta property="og:title" content="nld.to URL Shortener Launches" />
+<meta name="description" content="For New Leaf Digital, we thought that it would be helpful to have our own short URL, where we could provide easy links to members, sponsors, and presenters. Once I saw that bit.ly Enterprise cost $995 per month for vanity URLS, I thought that I could find a better solution." />
+<meta property="og:description" content="For New Leaf Digital, we thought that it would be helpful to have our own short URL, where we could provide easy links to members, sponsors, and presenters. Once I saw that bit.ly Enterprise cost $995 per month for vanity URLS, I thought that I could find a better solution." />
+<link rel="canonical" href="http://show256.com/project,nldto/2017/01/25/nld-to-launches.html" />
+<meta property="og:url" content="http://show256.com/project,nldto/2017/01/25/nld-to-launches.html" />
 <meta property="og:site_name" content="Show 256" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2017-01-25T23:00:00-06:00" />
 <script type="application/ld+json">
 {"@context": "http://schema.org",
-"@type": "WebPage",
-"headline": "Show 256",
-"description": "This site is a repository of projects and project updates by makers in North Alabama.",
-"url": "http://show256.com/index.md.bak"}</script>
+"@type": "BlogPosting",
+"headline": "nld.to URL Shortener Launches",
+"datePublished": "2017-01-25T23:00:00-06:00",
+"description": "For New Leaf Digital, we thought that it would be helpful to have our own short URL, where we could provide easy links to members, sponsors, and presenters. Once I saw that bit.ly Enterprise cost $995 per month for vanity URLS, I thought that I could find a better solution.",
+"url": "http://show256.com/project,nldto/2017/01/25/nld-to-launches.html"}</script>
 <!-- End Jekyll SEO tag -->
 
 </head>
@@ -121,21 +124,56 @@
 </nav>
 
 
-    <h1></h1>
-<!-- This loops through the paginated posts -->
+    <h1>nld.to URL Shortener Launches</h1>
+<!-- Look the author details up from the site config. -->
 
 
-<!-- Pagination links -->
-<div class="pagination">
-  
-    <span class="previous">Previous</span>
-  
-  <span class="page_number ">Page:  of </span>
-  
-    <span class="next ">Next</span>
-  
+<!-- Output author details if some exist. -->
+
+    <p class="subdued">
+        <!-- Personal Info. -->
+        Written by <a href="" target="_blank">Michael Carroll</a>
+        
+          <a href="https://twitter.com/carromj" target="_blank"><i class="fa fa-twitter-square">&nbsp;</i></a>
+        
+        
+          <a href="https://www.linkedin.com/in/carromj" target="_blank"><i class="fa fa-linkedin-square">&nbsp;</i></a>
+        
+        
+          <a href="https://github.com/mjcarroll" target="_blank"><i class="fa fa-github-square">&nbsp;</i></a>
+        
+    </p>
+
+
+
+<p>For New Leaf Digital, we thought that it would be helpful to have our own short URL, where we could provide easy links to members, sponsors, and presenters.  Once I saw that <a href="http://bit.ly">bit.ly</a> Enterprise cost <a href="https://www.quora.com/How-much-do-vanity-URL-shorteners-cost">$995 per month</a> for vanity URLS, I thought that I could find a better solution.</p>
+
+<p>To begin with, I bought the URL nld.to.</p>
+
+<p>I found (YOURLS)[https://github.com/YOURLS/YOURLS], which is a PHP/MySQL-based URL shortener.  I already had an (Amazon Lightsail)[https://amazonlightsail.com] Ubuntu box that was idle ($5 per month), so I set it up on there.</p>
+
+<p>As a note, the YOURLS software does not create a homepage (index.php), so if you visit, there will be errors.  If you instead visit:</p>
+
+<ul>
+  <li>http://nld.to/cwn (CoWorking Night)</li>
+  <li>http://nld.to/3210 (32/10 Young Professionals)</li>
+  <li>http://nld.to/donate (Donate to New Leaf!)</li>
+</ul>
+
+<p>The only major thing that I ran into was that there were errors creating a few of the tables with MariaDB on 16.04.  I worked through the issue by following this (Github Issue)[https://github.com/YOURLS/YOURLS/issues/2125], in particular the following command got the tables to create properly.:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>MariaDB [yourlsdb]&gt; CREATE TABLE IF NOT EXISTS yourls_url (keyword varchar(200) BINARY NOT NULL,url text BINARY NOT NULL,title text CHARACTER SET utf8,timestamp TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,ip VARCHAR(41) NOT NULL,clicks INT(10) UNSIGNED NOT NULL, PRIMARY KEY (keyword), KEY timestamp (timestamp), KEY ip (ip))
+-&gt; ENGINE=MyISAM;
+</code></pre>
 </div>
 
+
+<p class="subdued">Read more about
+
+  <!-- The next snippet will go here... -->
+   <a href="http://show256.com/project,nldto">project,nldto</a>
+
+</p>
 
 
     <script
