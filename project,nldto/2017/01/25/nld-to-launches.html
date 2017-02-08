@@ -24,6 +24,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"/>
     <link rel="stylesheet" href="/css/normalize.css" />
     <link rel="stylesheet" href="/css/brutal-theme.css" />
+    <link rel="stylesheet" href="/css/bw.css" />
 
     <!-- Custom Fonts -->
     <link href='https://fonts.googleapis.com/css?family=Roboto+Mono:400,700,700italic,100,100italic,300,300italic,500,400italic,500italic' rel='stylesheet' type='text/css'>
@@ -113,6 +114,12 @@
         
     
       
+      <!-- suppress all category and tag meta pages -->
+        
+        
+        
+    
+      
     
       
     
@@ -162,10 +169,9 @@
 
 <p>The only major thing that I ran into was that there were errors creating a few of the tables with MariaDB on 16.04.  I worked through the issue by following this <a href="https://github.com/YOURLS/YOURLS/issues/2125">Github Issue</a>, in particular the following command got the tables to create properly.:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>MariaDB [yourlsdb]&gt; CREATE TABLE IF NOT EXISTS yourls_url (keyword varchar(200) BINARY NOT NULL,url text BINARY NOT NULL,title text CHARACTER SET utf8,timestamp TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,ip VARCHAR(41) NOT NULL,clicks INT(10) UNSIGNED NOT NULL, PRIMARY KEY (keyword), KEY timestamp (timestamp), KEY ip (ip))
--&gt; ENGINE=MyISAM;
-</code></pre>
-</div>
+<figure class="highlight"><pre><code class="language-sql" data-lang="sql"><span class="n">MariaDB</span> <span class="p">[</span><span class="n">yourlsdb</span><span class="p">]</span><span class="o">&gt;</span> <span class="k">CREATE</span> <span class="k">TABLE</span> <span class="n">IF</span> <span class="k">NOT</span> <span class="k">EXISTS</span> <span class="n">yourls_url</span> <span class="p">(</span><span class="n">keyword</span> <span class="n">varchar</span><span class="p">(</span><span class="mi">200</span><span class="p">)</span> <span class="n">BINARY</span> <span class="k">NOT</span> <span class="k">NULL</span><span class="p">,</span><span class="n">url</span> <span class="n">text</span> <span class="n">BINARY</span> <span class="k">NOT</span> <span class="k">NULL</span><span class="p">,</span><span class="n">title</span> <span class="n">text</span> <span class="n">CHARACTER</span> <span class="k">SET</span> <span class="n">utf8</span><span class="p">,</span><span class="k">timestamp</span> <span class="k">TIMESTAMP</span> <span class="k">NOT</span> <span class="k">NULL</span> <span class="k">DEFAULT</span> <span class="k">CURRENT_TIMESTAMP</span><span class="p">,</span><span class="n">ip</span> <span class="n">VARCHAR</span><span class="p">(</span><span class="mi">41</span><span class="p">)</span> <span class="k">NOT</span> <span class="k">NULL</span><span class="p">,</span><span class="n">clicks</span> <span class="n">INT</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span> <span class="n">UNSIGNED</span> <span class="k">NOT</span> <span class="k">NULL</span><span class="p">,</span> <span class="k">PRIMARY</span> <span class="k">KEY</span> <span class="p">(</span><span class="n">keyword</span><span class="p">),</span> <span class="k">KEY</span> <span class="k">timestamp</span> <span class="p">(</span><span class="k">timestamp</span><span class="p">),</span> <span class="k">KEY</span> <span class="n">ip</span> <span class="p">(</span><span class="n">ip</span><span class="p">))</span>
+<span class="o">-&gt;</span> <span class="n">ENGINE</span><span class="o">=</span><span class="n">MyISAM</span><span class="p">;</span></code></pre></figure>
+
 
 
 <p class="subdued">Read more about
